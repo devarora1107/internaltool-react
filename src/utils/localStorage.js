@@ -28,7 +28,7 @@ export function loadUserSession(){
     return undefined   
 }
 export default{
-    saveState,
-    loadState,
-    clearState,
+    saveUserSession,
+    loadUserSession,
+    clearUserSession,
 }
