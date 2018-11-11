@@ -1,6 +1,6 @@
 import React from 'react'
 import LoginComponent from '../../components/Login/index'
-import {saveState} from '../../utils/localStorage'
+import {saveUserSession} from '../../utils/localStorageUtil'
 
 class Login extends React.Component{
     constructor(props){
@@ -31,8 +31,11 @@ class Login extends React.Component{
         }
     }
     render(){
+        console.log(this.props)
         return(
+            
             <LoginComponent 
+                className='custom-margin-bottom'
                 emailId={this.state.emailId}
                 password={this.state.password}
                 onSubmitClick={this.onSubmitClick}
@@ -45,4 +48,6 @@ class Login extends React.Component{
     }
 
 }
+
+
 export default Login

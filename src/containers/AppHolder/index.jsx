@@ -1,7 +1,7 @@
 import React from 'react'
 import Login from '../../containers/Login'
 import DashBoard from '../../containers/DashBoard'
-import {loadState} from '../../utils/localStorage'
+import {loadUserSession} from '../../utils/localStorageUtil'
 class AppHolder extends React.Component{
     constructor(props){
         super(props)
@@ -14,12 +14,12 @@ class AppHolder extends React.Component{
         this.setState({isAuthenticated:data})
     }
     render(){
-        const data=loadState()
-        if(data &&data.emailId){
-            this.setState({isAuthenticated:true})
-            console.log(data)
-        }
-        console.log(data.emailId)
+        //const data=loadUserSession()
+        //if(data &&data.emailId){
+        //    this.setState({isAuthenticated:true})
+        //    console.log(data)
+        //}
+        //console.log(data.emailId)
         const isAuthenticated=this.state.isAuthenticated
         if(!isAuthenticated){
             return(<Login handler={this.changeAuthentication}/>)

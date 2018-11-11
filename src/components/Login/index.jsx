@@ -10,14 +10,16 @@ const LoginComponent =(props)=>{
         onSubmitClick,
         onEmailIdChange,
         onPasswordChange,
-        disabled
+        disabled,
+        className
 
     }=props
-    return(
-            <div className='blackScreen'>
-                <div className='whiteScreen'>
+    return(<Grid className='whiteScreen'>
+            <div >
+                
                     <Form >
                         <FormInputGroup 
+                            
                             type="email"
                             onInputChange={onEmailIdChange}
                             size="large"
@@ -25,26 +27,27 @@ const LoginComponent =(props)=>{
                             inputValue={emailId}
                             />
                         <FormInputGroup 
+                        
                             type="password"
                             onInputChange={onPasswordChange}
                             size="large"
                             controlLabelValue="Password"
                             inputValue={password}
                             />
-                        <Row >
-                            <Col lg={4}></Col>
-                            <Col lg={4}>
-                                <CustomButton
-                                    bsStyle='primary'
-                                    onButtonClick={onSubmitClick}
-                                    disabled={disabled}
-                                    buttonName="Login"
-                                />
-                            </Col>
-                        </Row>
+                        
+                        <Button
+                            bsStyle='primary'
+                            onButtonClick={onSubmitClick}
+                            disabled={disabled}
+                            style={{margin:'0 120px'}}
+                        >
+                            Login
+                        </Button>
+                            
                     </Form>
-            </div>
-            </div>
+                
+            </div></Grid>
+            
             
     )
 }

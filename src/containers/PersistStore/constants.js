@@ -1,0 +1,5 @@
+export const LOG_IN='@@PersistedDtore/LOG_IN'
+export const LOG_OUT='@@PersistedStore/LOT_OUT'
+export const CLEAR_STATE='@@PersistedStore/CLEAR_STATE'
+export const UPDATE_USER_DATA='@@PersistedStore/UPDATE_USER_DATA'
+export const UPDATE_ACCESS_TOKEN='@@PersistedStore/UPDATE_ACCESS_TOKEN'

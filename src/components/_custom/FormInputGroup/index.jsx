@@ -11,7 +11,7 @@ const FormInputGroup=(props) =>{
     }=props
     return(
         <FormGroup controlId={controlId} bsSize={size}>
-            <Col lg={3}>
+            <Col lg={3} >
                 <ControlLabel>{controlLabelValue}</ControlLabel>
             </Col>
             <Col lg={9}>
@@ -20,7 +20,7 @@ const FormInputGroup=(props) =>{
                     type={type}
                     onChange={onInputChange}
                     value={inputValue}
-                    
+                    style={{marginTop:'15px'}}
                 />
             </Col>
         </FormGroup>

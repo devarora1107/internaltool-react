@@ -27,8 +27,21 @@ export function loadUserSession(){
     }
     return undefined   
 }
+export function loadState(){
+    try
+    {
+        const serializedData=localStorage.getItem('session')
+    if(serializedData){
+        return serializedData
+    }}catch(err){
+        return undefined
+    }
+    return undefined   
+}
+
 export default{
     saveUserSession,
     loadUserSession,
     clearUserSession,
+    loadState
 }
