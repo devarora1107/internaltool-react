@@ -21,7 +21,7 @@ const initialState={persistedData:loadState()};
 const history=createHistory();
 const middleWare=routerMiddleware(history)
 const store=createStore(rootReducer,initialState,composeWithDevTools(applyMiddleware(middleWare,sagaMiddleware)))
-//store.runSaga =sagaMiddleware.run(rootSaga,store.dispatch)
+store.runSaga =sagaMiddleware.run(rootSaga,store.dispatch)
 ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>

@@ -1,10 +1,12 @@
-import {SUBMIT_LOG_IN,LOG_OUT,FORGOT_PASSWORD} from './constant'
-import {base_url,api_key} from '../../config/Globals/Api'
+import {SUBMIT_LOG_IN,LOG_OUT,FORGOT_PASSWORD} from './constants'
+
 export function submitLoginDetails(payload){
+   
     return {
         type:SUBMIT_LOG_IN,
-        payload,
+        payload:payload
     }
+}
     
 export function logout(){
     return{

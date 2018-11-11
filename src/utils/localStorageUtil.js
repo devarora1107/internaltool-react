@@ -38,7 +38,14 @@ export function loadState(){
     }
     return undefined   
 }
+export function saveState(data){
+    try{
+        localStorage.setItem('session',JSON.stringify(data))
+    }
+    catch(err){
 
+    }
+}
 export default{
     saveUserSession,
     loadUserSession,

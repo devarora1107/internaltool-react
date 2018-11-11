@@ -1,10 +1,12 @@
 import {all} from 'redux-saga/effects'
 import { loginWatcher,logoutWatcher, clearStateWatcher } from '../containers/PersistStore/saga';
-export default function* rootSage(){
+import {submitLoginWatcher} from '../containers/Login/saga'
+export default function* rootSaga(){
     yield all([
         loginWatcher(),
         logoutWatcher(),
-        clearStateWatcher()
+        clearStateWatcher(),
+        submitLoginWatcher(),
 
     ])
 }

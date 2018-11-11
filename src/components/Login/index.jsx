@@ -37,7 +37,7 @@ const LoginComponent =(props)=>{
                         
                         <Button
                             bsStyle='primary'
-                            onButtonClick={onSubmitClick}
+                            onClick={onSubmitClick}
                             disabled={disabled}
                             style={{margin:'0 120px'}}
                         >

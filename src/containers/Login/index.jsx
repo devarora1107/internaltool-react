@@ -1,7 +1,9 @@
 import React from 'react'
 import LoginComponent from '../../components/Login/index'
 import {saveUserSession} from '../../utils/localStorageUtil'
-
+import {submitLoginDetails} from './action'
+import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 class Login extends React.Component{
     constructor(props){
         super(props)
@@ -21,15 +23,22 @@ class Login extends React.Component{
         this.setState({password:e.target.value})
 
     }
-    onSubmitClick(){
+    onSubmitClick(e){
         
+        
+        const {history}=this.props
         const email=this.state.emailId
         const password=this.state.password
-        alert(email)
-        if (email=='devansh@classplus.co' && password=='Admin@123'){
-            this.props.handler(true)
+        const payload={
+            email,
+            password,
+            
         }
+        
+        this.props.submitLoginDetails(payload)
+        
     }
+
     render(){
         console.log(this.props)
         return(
@@ -50,4 +59,4 @@ class Login extends React.Component{
 }
 
 
-export default Login
+export default withRouter(connect(undefined,{submitLoginDetails})(Login))
