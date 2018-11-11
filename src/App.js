@@ -11,13 +11,48 @@ import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 import ProtectedRoute from './components/_HOC/ProtectedRoute'
 
 
+const Loading =props =>
+props.pastDelay ?(
+  <Grid>
+    <Row>
+      <Col>
+        <ReactLoading type='spin' color='#fff' height={'20%'} width={'20%'}/>
+      </Col>
+    </Row>
+  </Grid>
+) :null;
+
+const LoadableLoginContainer=Loadable ({
+  loader:() => import('./containers/Login'),
+  loading(){
+    return <Loading/>
+  },
+  delay:350,}
+)
+const LoadableAppHolder =Loadable({
+  loader:()=> import('./containers/AppHolder'),
+  loading(){
+    return <Loading/>
+  },
+  delay:350,}
+)
+
 class App extends Component {
   
   render() {
     return (
       <div className="App">
-
-        <AppHolder/>
+        <Switch>
+          <Route exact path='/login' component={LoadableLoginContainer}/>
+          <Route exact path='/' component={LoadableAppHolder}/>
+        </Switch>
+          <ReduxToastr
+            newestOnTop={false}
+            preventDuplicates
+            position='top-right'
+            transitionIn='fadeIn'
+            transitionOut='fadeOut'
+          />
       </div>
     );
   }
