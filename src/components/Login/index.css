@@ -5,11 +5,9 @@
     margin-top:16%;
     height:300px;
   }
-.label-margin{
-    margin-top: 25px
-}
+
 .login-button{
-    margin:25px 140px;
+    margin:0 140px;
     width:25%
 }
 .welcome-message{

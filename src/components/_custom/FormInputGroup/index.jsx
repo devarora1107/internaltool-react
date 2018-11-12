@@ -11,18 +11,17 @@ const FormInputGroup=(props) =>{
     }=props
     return(
         <FormGroup controlId={controlId} bsSize={size}>
-            <Col lg={3} >
-                <ControlLabel className='label-margin'>{controlLabelValue}</ControlLabel>
-            </Col>
-            <Col lg={9}>
+            
+                <ControlLabel >{controlLabelValue}</ControlLabel>
+            
                 <FormControl
                     autoFocus
                     type={type}
                     onChange={onInputChange}
                     value={inputValue}
-                    style={{marginTop:'15px'}}
+                    
                 />
-            </Col>
+            
         </FormGroup>
     )
 }

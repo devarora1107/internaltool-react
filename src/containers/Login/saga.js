@@ -18,9 +18,10 @@ function* SubmitLoginDetails(payload){
             callLoginApi,
             data
         );
+        
         const user=yield call(
             getUser,
-            response.data.data.token
+            response.data.token
         )
         const loginData={
             data:{
@@ -28,8 +29,9 @@ function* SubmitLoginDetails(payload){
                 tokenExpiryTime:response.data.data.tokenExpirtyTime,
                 user:user.data.data.user
             }
-        }
-        yield saveState(loginData)
+       }
+        yield saveState({token:'token'})
+        console.log('1 am here')
         yield put(push('/'))
     }
     catch(err){
@@ -39,12 +41,13 @@ function* SubmitLoginDetails(payload){
 
 
 function getUser(token){
+    console.log(token)
     return axios(
         `http://localhost:8001/auth/user`,{
             method:'GET',
             headers:{
                 'content-type': 'application/json',
-            'x-access-token': token
+                'x-access-token': token
             }
     }).then(response=>{
         return response

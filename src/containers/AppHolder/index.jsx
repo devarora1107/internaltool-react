@@ -14,16 +14,7 @@ class AppHolder extends React.Component{
         this.setState({isAuthenticated:data})
     }
     render(){
-        //const data=loadUserSession()
-        //if(data &&data.emailId){
-        //    this.setState({isAuthenticated:true})
-        //    console.log(data)
-        //}
-        //console.log(data.emailId)
-        const isAuthenticated=this.state.isAuthenticated
-        if(!isAuthenticated){
-            return(<Login handler={this.changeAuthentication}/>)
-        }
+        
         return (<DashBoard/>)
         
     }
