@@ -9,7 +9,7 @@ import ReactLoading from 'react-loading'
 import ReduxToastr from 'react-redux-toastr'
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 import ProtectedRoute from './components/_HOC/ProtectedRoute'
-
+import {withRouter} from 'react-router-dom'
 
 const Loading =props =>
 props.pastDelay ?(
@@ -45,7 +45,7 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path='/login' component={LoadableLoginContainer}/>
-          <ProtectedRoute exact path='/' component={LoadableAppHolder}/>
+          <ProtectedRoute  path='/' component={LoadableAppHolder}/>
         </Switch>
           <ReduxToastr
             newestOnTop={false}
@@ -59,4 +59,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App)

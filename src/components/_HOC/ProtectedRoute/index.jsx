@@ -1,25 +1,22 @@
-import React from 'react'
-import {Route,Redirect} from 'react-router-dom'
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
 //import {loadState} from '../../../utils/localStorageUtil'
-export default function ProtectedRoute({componment:Component, ...rest}){
-    
-    const isAuthenticated=localStorage.getItem('data')
-    console.log(isAuthenticated)
-    return (
-        <Route
-        {...rest}
-        render={props => (
-          false ? (
-            <Component {...props} />
-          ) : (
-            < Redirect to={{
-                pathname: '/login',
-                state: { from: props.location },
-              }}
-            />
-            )
-        )}
+export default function ProtectedRoute({ component: Component, ...rest }) {
+  const isAuthenticated = localStorage.getItem('session')
+  console.log(isAuthenticated)
+  return (
+    <Route
+      {...rest}
+      render={props => (
+        isAuthenticated ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to={{
+              pathname: '/login',
+              state: { from: props.location },
+            }}
+          />
+          )
+      )}
     />);
-
-
 }
