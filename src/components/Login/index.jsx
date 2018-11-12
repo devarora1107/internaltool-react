@@ -2,7 +2,7 @@ import React from 'react'
 import {Grid,Row,Col,Label,Form,Button} from 'react-bootstrap'
 import FormInputGroup from '../_custom/FormInputGroup'
 import CustomButton from '../_custom/CustomButton'
-
+import './index.css'
 const LoginComponent =(props)=>{
     const {
         emailId,
@@ -14,9 +14,9 @@ const LoginComponent =(props)=>{
         className
 
     }=props
-    return(<Grid className='whiteScreen'>
+    return(<Grid className='center-block whiteScreen'>
             <div >
-                
+                    <h1 className='text-center'>Welcome</h1>
                     <Form >
                         <FormInputGroup 
                             
@@ -37,9 +37,10 @@ const LoginComponent =(props)=>{
                         
                         <Button
                             bsStyle='primary'
+                            bsSize='md'
                             onClick={onSubmitClick}
                             disabled={disabled}
-                            style={{margin:'0 120px'}}
+                            className='login-button'
                         >
                             Login
                         </Button>

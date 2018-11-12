@@ -12,7 +12,7 @@ const FormInputGroup=(props) =>{
     return(
         <FormGroup controlId={controlId} bsSize={size}>
             <Col lg={3} >
-                <ControlLabel>{controlLabelValue}</ControlLabel>
+                <ControlLabel className='label-margin'>{controlLabelValue}</ControlLabel>
             </Col>
             <Col lg={9}>
                 <FormControl
