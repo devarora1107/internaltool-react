@@ -47,3 +47,4 @@ function* manageApiCall(action){
 export function* apiCallWatcher() {
     yield takeEvery(MAKE_API_CALL,manageApiCall)
 }
+

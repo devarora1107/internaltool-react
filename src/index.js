@@ -15,6 +15,7 @@ import rootSaga from './sagas';
 import {loadState} from './utils/localStorageUtil'
 import { Router } from 'react-router';
 import { composeWithDevTools } from 'redux-devtools-extension'
+
 const sagaMiddleware=createSagaMiddleware()
 const initialState={persistedData:loadState()};
 

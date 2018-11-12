@@ -25,13 +25,13 @@ function* SubmitLoginDetails(payload){
         )
         const loginData={
             data:{
-                token:response.data.data.token,
-                tokenExpiryTime:response.data.data.tokenExpirtyTime,
-                user:user.data.data.user
+                token:response.data.token,
+                //tokenExpiryTime:response.data.data.tokenExpirtyTime,
+                user:user.data
             }
        }
-        yield saveState({token:'token'})
-        console.log('1 am here')
+        yield saveState(loginData)
+        
         yield put(push('/'))
     }
     catch(err){

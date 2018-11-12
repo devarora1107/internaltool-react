@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import AppHolder from './containers/AppHolder'
 import Loadable from 'react-loadable'
-import {Switch,Route,Redirect} from 'react-router-dom'
+import {Switch,Route,Redirect } from 'react-router-dom'
 import {Grid,Row,Col} from 'react-bootstrap'
 import ReactLoading from 'react-loading'
 import ReduxToastr from 'react-redux-toastr'
@@ -40,11 +40,12 @@ const LoadableAppHolder =Loadable({
 class App extends Component {
   
   render() {
+    
     return (
       <div className="App">
         <Switch>
           <Route exact path='/login' component={LoadableLoginContainer}/>
-          <Route exact path='/' component={LoadableAppHolder}/>
+          <ProtectedRoute exact path='/' component={LoadableAppHolder}/>
         </Switch>
           <ReduxToastr
             newestOnTop={false}

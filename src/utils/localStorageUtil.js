@@ -19,9 +19,9 @@ export function clearUserSession(){
 export function loadUserSession(){
     try
     {
-        const serializedData=localStorage.getItem('session')
+        const serializedData=localStorage.getItem('data')
     if(serializedData){
-        return serializedData
+        return JSON.parse(serializedData)
     }}catch(err){
         return undefined
     }
@@ -30,9 +30,9 @@ export function loadUserSession(){
 export function loadState(){
     try
     {
-        const serializedData=localStorage.getItem('session')
+        const serializedData=localStorage.getItem('data')
     if(serializedData){
-        return serializedData
+        return JSON.parse(serializedData)
     }}catch(err){
         return undefined
     }
