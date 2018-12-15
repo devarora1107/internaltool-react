@@ -5,9 +5,9 @@ import {push} from 'react-router-redux'
 import axios from 'axios'
 import {API_BASE_URL} from '../../config/Globals/Api'
 
-
+import {toastr} from 'react-redux-toastr'
 function* SubmitLoginDetails(payload){
-    console.log(payload)
+    
     let data={
         email:payload.payload.email,
         password:payload.payload.password,
@@ -31,11 +31,11 @@ function* SubmitLoginDetails(payload){
             }
        }
         yield saveState(loginData)
-        
+        toastr.success('Login Successful')
         yield put(push('/'))
     }
     catch(err){
-
+        toastr.error('Wrong Passwrd')
     }
 }
 
@@ -66,7 +66,7 @@ function callLoginApi(data) {
         headers: { 'content-type': 'application/json' },
         data: JSON.stringify(data)
     }).then(response => {
-
+        if(response.data.status)
         return response
     })
 }

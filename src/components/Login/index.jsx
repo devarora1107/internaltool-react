@@ -11,7 +11,7 @@ const LoginComponent =(props)=>{
         onEmailIdChange,
         onPasswordChange,
         disabled,
-        className
+        
 
     }=props
     return(<Grid className='center-block whiteScreen'>
