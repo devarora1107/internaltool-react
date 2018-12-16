@@ -1,0 +1,30 @@
+.navbarStyle{
+    height:30px
+}
+.navbar-header{
+    padding: 3px
+}
+
+.container{
+
+}
+.navbar-fixed{
+    top:0px;
+    position: fixed;
+}
+
+.navbar{
+    min-height: 68px;
+    z-index:1100;
+}
+
+.header-asda{
+    height:68px;
+    
+    
+    background-color: black
+}
+
+
+
+

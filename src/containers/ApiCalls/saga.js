@@ -5,8 +5,9 @@ import {MAKE_API_CALL} from './constants'
 import {API_BASE_URL} from '../../config/Globals/Api'
 import {loadState} from '../../utils/localStorageUtil'
 
-function makeApiCall(mathod,url,data,{persistedStore}){
+function makeApiCall(method,url,data,{persistedStore}){
     let user=loadState()
+    
     return axios({
         url,
         method,
@@ -29,13 +30,13 @@ function* manageApiCall(action){
 
     }
     catch(err){
-        if(err.response &&err.response.status=401){
+        if(err){
             toastr.error("ERROR",'you are not logged in')
         }
         else{
             if(!action.preventToastr){
                 yield call(action.handleSuccess,err.config.data)
-                toaster.error('ERROR','ERROR')
+                toastr.error('ERROR','ERROR')
 
             }
             if(action.handleError){

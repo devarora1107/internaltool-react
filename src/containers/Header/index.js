@@ -35,14 +35,14 @@ class HeaderContainer extends React.Component {
         clearUserSession()
     }
 
-    handleSelect(key){
+    handleSelect(e,{name}){
        
         this.setState({
-            activeKey:key
+            activeKey:name
         }
         )
         
-        const url=navigationItem[key-1].navigation
+        const url=navigationItem[name-1].navigation
         console.log(url)
         this.props.history.push(`${url}`)
     }

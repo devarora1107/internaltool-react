@@ -13,7 +13,10 @@ export function makeApiCall(
     handleError,
     preventToastr=false,
     config,
-){
+)
+
+
+{
     return {
         type:MAKE_API_CALL,
         url,

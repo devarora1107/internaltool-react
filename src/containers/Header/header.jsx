@@ -2,6 +2,8 @@
 import React from 'react'
 import {Navbar,NavItem,NavDropdown,MenuItem,Nav} from 'react-bootstrap'
 import navigationItem from './navbaritem'
+import './index.css'
+import {Menu} from 'semantic-ui-react'
 const Header =(props)=>{
     const {
         activeKey,
@@ -24,26 +26,27 @@ const Header =(props)=>{
     }=props
     
     return (
-        <Navbar className='navbar navbarExpandLg navbarLight bgLight' fixedTop fluid>
-            <Navbar.Header onClick={handleHomeClick}>
-                Vedimart
-            </Navbar.Header>
-            <Nav activeKey={activeKey} onSelect={handleSelect}>
+        <Menu color='blue' fluid fixed="top" size='large' borderless style={{ zIndex: 700,backgroundColor:'#f5f5f5'}}  className='header-asda'>
+            
+            
                 {navigationItem.map(item=>{
                     return (
-                        <NavItem  eventKey={item.eventKey} navigation={item.navigation}>
-                            {item.title}
-                        </NavItem>
+                        <Menu.Item
+                            name={item.eventKey}
+                            active={activeKey===item.eventKey}
+                            onClick={handleSelect}
+        >{item.title}
+        </Menu.Item>
                     )
                 })}
-                <NavDropdown eventKey={9} title='Account' id="basic-nav-dropdown">
+                <NavDropdown eventKey={10} title='Account' id="basic-nav-dropdown">
                     <MenuItem onClick={handleProfileClick}>Profile</MenuItem>
                     <MenuItem onClick={handleChangePasswordClick}>Change Password</MenuItem>
                     <MenuItem onClick={handleLogoutClick}>Logout</MenuItem>
                 </NavDropdown>
-            </Nav>
             
-        </Navbar>
+            
+        </Menu>
     )
 
 }

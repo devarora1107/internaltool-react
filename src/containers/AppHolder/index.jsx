@@ -13,18 +13,18 @@ import {Switch,Route} from 'react-router-dom'
 import ItemsContainer from '../Items'
 import Loadable from 'react-loadable';
 import ReactLoading from 'react-loading'
-import {Grid,Row,Col} from 'react-bootstrap'
-
+import {Row,Col} from 'react-bootstrap'
+import {Grid,Container} from 'semantic-ui-react'
 
 const Loading= (props)=>
   props.pastDelay ? (
-    <Grid>
+    
       <Row>
         <Col>
           <ReactLoading type='spin' color='#fff' height={'20%'} width={'20%'}/>
         </Col>
       </Row>
-    </Grid>
+    
   ):null;
 
   const LoadableItems = Loadable({
@@ -61,28 +61,21 @@ class AppHolder extends React.Component{
         }).catch(err=>{
 
         })
-    }
-    
-    
-      
+    } 
     render(){
-        
-
-        const LoadableItems = Loadable({
-            loader: () => import('../Items'),
-            loading() {
-              return <Loading />;
-            },
-            delay: 350
-          });
         return (
-            <div>
-                <HeaderContainer
-                />
-                <Switch>
-                    <Route exact path='/items' component={LoadableItems}/>
-                </Switch>
-            </div>
+            
+            <React.Fragment>  
+                
+                    <HeaderContainer
+                    />
+                
+                    <Switch>
+                        <Route exact path='/items' component={LoadableItems}/>
+                    </Switch>
+                
+            
+            </React.Fragment>
         )
         
     }
@@ -94,4 +87,4 @@ function mapStateToProps({persistedData}){
         persistedData
     }
 }
-export default withRouter(connect(undefined,{updateUser})(AppHolder))
+export default connect(mapStateToProps,{updateUser})(AppHolder)
